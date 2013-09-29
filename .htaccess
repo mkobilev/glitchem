@@ -1,0 +1,19 @@
+AddDefaultCharset utf-8
+
+Options All -Indexes
+
+DirectoryIndex index.php index.html index.htm
+
+RewriteRule ^(([^/]+/)*[^.]+)$ /.php [L]
+
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+ErrorDocument 401 /error/401.php
+ErrorDocument 403 /error/403.php
+ErrorDocument 404 /pages/404.php
+ErrorDocument 500 /error/500.php
+
+

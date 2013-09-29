@@ -1,0 +1,28 @@
+
+<div class="container">
+    <div class="row-fluid">
+        <table class="table  table-striped">
+            <? 
+            $i=0;
+            for($x=0; $x<5; $x++) {
+                echo "<tr>\n";
+                for($y=0; $y<5; $y++) {
+                    $i+=1;
+                    $part = "width=186 onclick=imgchange(this,'users/{$userId}/img/{$i}_orig.jpg','users/{$userId}/img/{$i}_gluk.jpg') />\n";
+                    echo "\t<img src=\"users/{$userId}/img/{$i}_orig.jpg\" {$part}";
+                }
+                echo "</tr>\n";
+            };?>
+        </table>
+     <hr>
+    <p align="center">
+        <a href="#" class="btn center" onclick="wallpost('orig')">WallPost</a>
+    </p>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
+
+  

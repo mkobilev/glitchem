@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<?
+if($userId){
+$urlPart = "&uid={$userId}";
+}
+?>
+<html>
+    <head>
+        <title>GlitchEM</title>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script src="bootstrap/js/jquery.js" ></script>
+        <script src="bootstrap/js/bootstrap.min.js" ></script>
+        
+        <script src="http://vk.com/js/api/openapi.js" type="text/javascript" ></script>
+        <script>
+             VK.init({ apiId: YOUR_APP_ID })
+              
+             function wallpost(puzzle){
+                 
+                 if(puzzle){
+                    url = "http://<?=$_SERVER['HTTP_HOST']?>/users/<?=$userId?>/img/big_"+puzzle+".jpg"
+                    hello = "Я сделал классный "+puzzle+" puzzle на <?=$_SERVER['HTTP_HOST']?>"
+                } else {
+                    hello = "PictureGlitcher"
+                    url = "http://<?=$_SERVER['HTTP_HOST']?>/index.php?act=about"
+                }
+                
+                VK.Api.call('wall.post',
+                  { message: hello,
+                  attachments: url,
+                  from_group : 0},
+                  function (data) {
+                    if(data) {
+                        alert("ok")
+                    }
+                })
+            }
+        </script>
+        <script type="text/javascript">
+        
+        
+        function wait(obj) {
+        msg="Нажимаем ОК - ждем 30 секунд"
+        alert(msg);
+        
+        };
+              var x=false
+              function imgchange(obj,imgX,imgY) {
+               if (x){
+               obj.src=imgX
+               } else {
+               obj.src=imgY
+               }
+              x=!x
+             }
+        </script>
+          <style>
+                body {
+                    margin:0;
+                    padding:0;
+                    //background: aliceblue;
+                    background:  #f0f0f0;
+                    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+                    font-size: 11px;
+                    color: #000;
+                }
+                #container {
+                    width:400px; /*Ширина блока*/
+                    height:200px; /*Высота блока*/
+                    margin:0 auto;
+                    overflow:visible;
+                    position:absolute;
+                    left:50%;
+                    top:50%;
+                    margin-left:-200px; /*Смещаем блок на половину всей ширины влево*/
+                    margin-top:-100px; /*Смещаем блок на половину высоты вверх*/
+                }
+                .main {
+                    height:100%;
+                }
+                .main_in_main {
+                    height:100%;
+                }
+                .content {
+                    padding-top:0px;
+                    height:200px;
+                }
+        </style>
+        <script type="text/javascript">
+        window.onload = function () {
+         VK.init({apiId: YOUR_SITE_APP_ID , onlyWidgets: true});
+         VK.Widgets.Like('vk_like', {width: 300, pageTitle: 'GlithEM', pageDescription: 'GlithEM for Oggetto'}, 321);
+        }
+        </script>    
+    </head>
+
+<div class="container" style="margin-top:40px;">
+    <header>
+        <br>
+    </header>
+
+<body>
+
+
+<div class="navbar navbar-fixed-top">
+   <nav class="navbar-inner">
+       <div class="container-fluid">
+            <div class="nav">
+                <ul class="nav">
+                    <li><a class="brand" href="?act=main<?=$urlPart?>"><strong>GlitchEM</strong></a></li>
+                    <li class="divider-vertical divider-inverse"></li>
+                    <li><a href="?act=about<?=$urlPart?>">About</a></li>
+                    <li><a href="?act=orig<?=$urlPart?>">Orig</a></li>
+                    <li><a href="?act=glitch<?=$urlPart?>">Glitch</a></li>
+                    <li><a href="?act=filter<?=$urlPart?>">Filter</a></li>
+                    <li><a href="#" onclick="wallpost()">WallPost</a></li>
+                    <li class="divider-vertical divider-inverse"></li>
+                    <li><a id="vk_like"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+

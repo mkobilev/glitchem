@@ -1,0 +1,33 @@
+
+<div class="container">
+    <div class="row-fluid">
+        <table class="table  table-striped">
+
+<?
+    for($i=1; $i<6; $i++) {
+        echo "<tr>\n";
+        $filter=array('rbg','bgr','brg','gbr','grb');
+        
+        foreach ($filter as &$value) { 
+            echo "\t<img src=\"users/{$userId}/img/{$i}_{$value}.jpg\" width=186) />\n";
+        }
+        
+        echo "</tr>\n";
+    }
+    
+    ?>
+    </tr>
+        </table>
+    <hr>
+    <p align="center">
+        <a href="#" class="btn center" onclick="wallpost('filter')">WallPost</a>
+    </p>
+
+    </div>
+</div>
+
+</div>
+    </body>
+</html>
+
+  
